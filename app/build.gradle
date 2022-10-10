@@ -19,6 +19,11 @@ android {
     compileSdk 32
 
     defaultConfig {
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
         applicationId "it.mirea.pizzeria"
         minSdk 21
         targetSdk 32
@@ -45,8 +50,7 @@ dependencies {
 
 
     implementation 'org.xerial:sqlite-jdbc:3.30.1'
-    implementation "androidx.room:room - runtime:2.3.0"
-    annotationProcessor "androidx.room:room-compiler:2.3.0"
+
     implementation "android.arch.persistence.room:runtime:1.0.0"
     annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
     implementation 'androidx.appcompat:appcompat:1.4.1'
@@ -74,9 +78,7 @@ dependencies {
     //gson
     implementation 'com.google.code.gson:gson:2.8.8'
 
-    //room
-    implementation "androidx.room:room-runtime:2.3.0"
-    annotationProcessor "androidx.room:room-compiler:2.3.0"
+
 
     //viewPager2
     implementation "androidx.viewpager2:viewpager2:1.0.0"

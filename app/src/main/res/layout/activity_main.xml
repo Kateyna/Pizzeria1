@@ -7,10 +7,23 @@
     tools:context=".MainActivity"
     android:orientation = "vertical">
 
+    <EditText
+        android:id="@+id/Pizzaname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите название пиццы" />
+
+    <EditText
+        android:id="@+id/Receptpizza"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите рецепт пиццы" />
+
     <Button
         android:id="@+id/addButton"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
         android:text="add pizza" />
 
 

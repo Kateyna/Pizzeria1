@@ -9,22 +9,39 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static    String PIZZA_NAME = "recept";
+    private static final   String PIZZA_RECEPT = "recept";
+    EditText Pizzaname;
+    EditText Receptpizza;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Receptpizza = (EditText) findViewById(R.id.Receptpizza);
+        Pizzaname = (EditText) findViewById(R.id.Pizzaname);
+
+
+
         PizzaViewmodel viewmodel = ViewModelProviders.of(this).get(PizzaViewmodel.class);
 
         PizzaDatabase db = Room.databaseBuilder(getApplicationContext(),
                 PizzaDatabase.class, "pizza-database").allowMainThreadQueries().build();
 
-        Pizza anna = new Pizza("Ana", "Anna's pizza", "onion, chicken, barbecue sause");
+        EditText Pizzaname =  (EditText) findViewById(R.id.Pizzaname);
+
+
+
+        PIZZA_NAME = Pizzaname.getText().toString();
+
+        Pizza anna = new Pizza("Ana", PIZZA_NAME, PIZZA_RECEPT);
 
         Pizza kate = new Pizza("Kate", "karbonara", "chichken,tomato");
 
