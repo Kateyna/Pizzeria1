@@ -1,30 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation = "vertical">
+    android:backgroundTint="@android:color/holo_orange_light"
+    tools:context=".MainActivity">
+
+
+    <EditText
+        android:id="@+id/Name"
+        android:layout_width="352dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="30dp"
+        android:hint="Введите Ваше имя"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/Pizzaname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Введите название пиццы" />
+        android:layout_width="352dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:hint="Введите название пиццы"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Name" />
 
     <EditText
         android:id="@+id/Receptpizza"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Введите рецепт пиццы" />
+        android:layout_width="352dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="30dp"
+        android:hint="Введите рецепт пиццы"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Pizzaname" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/addButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="326dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="43dp"
         android:background="@drawable/custom_button"
-        android:text="add pizza" />
+        android:text="add pizza"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#00FFFFFF"
+        android:textColorHint="#000000"
+        android:textColorLink="#00FFFFFF"
+        app:backgroundTint="@android:color/holo_orange_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Receptpizza" />
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

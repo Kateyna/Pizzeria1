@@ -22,6 +22,8 @@ public interface PizzaDAO {
     @Insert
     void insertAll(Pizza... pizzas);
 
+
+
     @Query("SELECT * FROM pizza")
     LiveData<List<Pizza>>getAllPizzas();
 }

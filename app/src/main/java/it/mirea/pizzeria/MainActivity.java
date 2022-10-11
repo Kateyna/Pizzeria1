@@ -5,20 +5,23 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.room.Room;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static    String PIZZA_NAME = "recept";
-    private static final   String PIZZA_RECEPT = "recept";
+
     EditText Pizzaname;
     EditText Receptpizza;
+    EditText Name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         Receptpizza = (EditText) findViewById(R.id.Receptpizza);
         Pizzaname = (EditText) findViewById(R.id.Pizzaname);
+        Name = (EditText) findViewById(R.id.Name);
 
 
 
@@ -34,14 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
         PizzaDatabase db = Room.databaseBuilder(getApplicationContext(),
                 PizzaDatabase.class, "pizza-database").allowMainThreadQueries().build();
-
-        EditText Pizzaname =  (EditText) findViewById(R.id.Pizzaname);
-
-
-
-        PIZZA_NAME = Pizzaname.getText().toString();
-
-        Pizza anna = new Pizza("Ana", PIZZA_NAME, PIZZA_RECEPT);
 
         Pizza kate = new Pizza("Kate", "karbonara", "chichken,tomato");
 
@@ -52,8 +48,26 @@ public class MainActivity extends AppCompatActivity {
         Button button = findViewById(R.id.addButton);
 
         button.setOnClickListener(view ->  {
+            String PIZZA_NAME = Pizzaname.getText().toString();
+            String PIZZA_RECEPT = Receptpizza.getText().toString();
+            String NAME = Name.getText().toString();
+            Pizza anna = new Pizza(NAME,PIZZA_NAME, PIZZA_RECEPT);
             viewmodel.insertPizzas(anna);
+
+            Intent intent = new Intent(MainActivity.this, PizzaSpisok.class);
+            startActivity(intent);
+
+            Context context = getApplicationContext();
+            CharSequence text = "Поздравляю! Вы создали пиццу!!!";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+
+            Toast.makeText(context, text, duration).show();
+
         });
+
 
 
 
