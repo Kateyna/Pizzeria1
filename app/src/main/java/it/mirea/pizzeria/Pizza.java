@@ -5,6 +5,8 @@ import android.app.Person;
 import org.jetbrains.annotations.NotNull;
 
 import androidx.room.ColumnInfo;
+import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -34,10 +36,29 @@ public class Pizza {
         this.recept = recept;
 
     }
+    public String getPizza_name() {
+        return pizza_name;
+    }
 
+    public void setPizza_name(String pizza_name) {
+        this.pizza_name = pizza_name;
+    }
 
+    public String getName() {
+        return name;
+    }
 
+    public void getName(String name) {
+        this.name = name;
+    }
 
+    public String getRecept() {
+        return recept;
+    }
+
+    public void setRecept(String recept) {
+        this.recept = recept;
+    }
 
 
 

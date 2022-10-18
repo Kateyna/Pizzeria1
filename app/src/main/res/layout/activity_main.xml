@@ -21,6 +21,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        android:id="@+id/name"
+        android:layout_width="352dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="412dp"
+        android:layout_marginEnd="30dp"
+        android:hint="Введите название пиццы"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
         android:id="@+id/Pizzaname"
         android:layout_width="352dp"
         android:layout_height="55dp"
@@ -59,6 +72,25 @@
         android:textColorLink="#00FFFFFF"
         app:backgroundTint="@android:color/holo_orange_dark"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Receptpizza" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addButton2"
+        android:layout_width="326dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="236dp"
+        android:layout_marginEnd="43dp"
+        android:background="@drawable/custom_button"
+        android:text="delete pizza"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#00FFFFFF"
+        android:textColorHint="#000000"
+        android:textColorLink="#00FFFFFF"
+        app:backgroundTint="@android:color/holo_orange_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Receptpizza" />
 

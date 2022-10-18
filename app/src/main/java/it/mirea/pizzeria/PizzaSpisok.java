@@ -29,6 +29,8 @@ public class PizzaSpisok  extends AppCompatActivity {
         Button button2 = (Button)findViewById(R.id.addPizza);
 
 
+
+
     }
 
     public void toAddPizza(View view) {

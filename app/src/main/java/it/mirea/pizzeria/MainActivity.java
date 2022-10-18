@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             String PIZZA_RECEPT = Receptpizza.getText().toString();
             String NAME = Name.getText().toString();
             Pizza anna = new Pizza(NAME,PIZZA_NAME, PIZZA_RECEPT);
-            viewmodel.insertPizzas(anna);
+            viewmodel.insert(anna);
 
             Intent intent = new Intent(MainActivity.this, PizzaSpisok.class);
             startActivity(intent);
@@ -68,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        Button button2 = findViewById(R.id.addButton2);
+        button2.setOnClickListener(view ->  {
+
+        });
 
 
 

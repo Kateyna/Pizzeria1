@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -20,10 +21,22 @@ public interface PizzaDAO {
     // LiveData<List<PizzaDTO>> getAllPizzas();
 
     @Insert
-    void insertAll(Pizza... pizzas);
+    void AddPizza(Pizza pizza);
 
+    @Update
+    void UpdatePizza(Pizza pizza);
 
+    @Delete
+    void DeletePizza(Pizza pizza);
 
     @Query("SELECT * FROM pizza")
-    LiveData<List<Pizza>>getAllPizzas();
+    LiveData<List<Pizza>> getAllPizzas();
+
+    @Query("select * from pizza where name ==:name ")
+    public Pizza getPizza(String name);
+
+    @Query("select * from pizza")
+    public LiveData<List<Pizza>> getAllPizzasLive();
+
+
 }

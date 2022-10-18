@@ -2,6 +2,7 @@ package it.mirea.pizzeria;
 
 import android.app.Application;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
@@ -9,21 +10,27 @@ import java.util.List;
 
 public class PizzaViewmodel extends AndroidViewModel {
 
-    PizzaRepozitory repozitory;
-    LiveData<List<Pizza>> pizzaList;
+    private PizzaRepozitory repozitory;
+    private LiveData<List<Pizza>> pizzaList;
 
-    public PizzaViewmodel (Application application){
+    public PizzaViewmodel(@NonNull Application application) {
         super(application);
-        repozitory =  new PizzaRepozitory(application);
-        pizzaList = repozitory.getPizza();
+        repozitory = new PizzaRepozitory(application);
+        pizzaList = repozitory.getAllPizzas();
     }
 
-    LiveData<List<Pizza>> getAllPizzas(){
-        return  pizzaList;
+
+    public void insert(Pizza pizza){ repozitory.insert(pizza); }
+
+    public void update(Pizza pizza){
+        repozitory.update(pizza);
     }
 
-    public  void  insertPizzas(Pizza pizza){
-        repozitory.insert(pizza);
+    public void delete(Pizza pizza){
+        repozitory.delete(pizza);
     }
 
+    public LiveData<List<Pizza>> getAllPizzas(){
+        return pizzaList;
+    }
 }

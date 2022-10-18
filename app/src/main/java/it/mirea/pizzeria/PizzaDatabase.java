@@ -4,9 +4,13 @@ import android.content.Context;
 import  androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteStatement;
 
-@Database(entities = {Pizza.class},version = 1)
-public abstract class PizzaDatabase extends RoomDatabase {
+@Database(entities = {Pizza.class},version = 1, exportSchema = false)
+    public abstract class PizzaDatabase extends RoomDatabase {
+    public static SupportSQLiteStatement databaseWriteExecutor;
+
+
     public abstract PizzaDAO pizzaDAO();
 
     public  static  PizzaDatabase INSTANCE;
