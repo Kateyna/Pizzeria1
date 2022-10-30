@@ -1,8 +1,14 @@
 package it.mirea.pizzeria;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 import androidx.room.Room;
 
 import android.content.Context;
@@ -14,72 +20,53 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.List;
+
+import it.mirea.pizzeria.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    private ActivityMainBinding binding;
     EditText Pizzaname;
     EditText Receptpizza;
     EditText Name;
+    PizzaViewmodel model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        Receptpizza = (EditText) findViewById(R.id.Receptpizza);
-        Pizzaname = (EditText) findViewById(R.id.Pizzaname);
-        Name = (EditText) findViewById(R.id.Name);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
 
+        View view = binding.getRoot();
 
 
-        PizzaViewmodel viewmodel = ViewModelProviders.of(this).get(PizzaViewmodel.class);
+        setContentView(view);
+        model = new ViewModelProvider(this).get(PizzaViewmodel.class);
 
-        PizzaDatabase db = Room.databaseBuilder(getApplicationContext(),
-                PizzaDatabase.class, "pizza-database").allowMainThreadQueries().build();
 
-        Pizza kate = new Pizza("Kate", "karbonara", "chichken,tomato");
-
-        //    db.pizzaDAO().insertAll(anna);
-
-        //    List<Pizza> pizzaList = db.pizzaDAO().getAllPizzas();
-
-        Button button = findViewById(R.id.addButton);
-
-        button.setOnClickListener(view ->  {
-            String PIZZA_NAME = Pizzaname.getText().toString();
-            String PIZZA_RECEPT = Receptpizza.getText().toString();
-            String NAME = Name.getText().toString();
-            Pizza anna = new Pizza(NAME,PIZZA_NAME, PIZZA_RECEPT);
-            viewmodel.insert(anna);
-
-            Intent intent = new Intent(MainActivity.this, PizzaSpisok.class);
-            startActivity(intent);
-
-            Context context = getApplicationContext();
-            CharSequence text = "Поздравляю! Вы создали пиццу!!!";
-            int duration = Toast.LENGTH_SHORT;
-
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
-
-            Toast.makeText(context, text, duration).show();
-
-        });
-
-        Button button2 = findViewById(R.id.addButton2);
-        button2.setOnClickListener(view ->  {
-
-        });
+        BottomNavigationView navView = findViewById(R.id.nav_view);
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        NavigationUI.setupWithNavController(binding.navView, navController);
 
 
 
+        model.update(new Pizza("kate", "mozarella", "cheese,banana"));
 
-        viewmodel.getAllPizzas().observe(this, pizzaList -> {
 
-           // if(pizzaList == null){
-             //   return;
+
+        model.getAllPizzas().observe(this, pizzaList -> {
+
+            // if(pizzaList == null){
+            //   return;
             //}
 
             for (Pizza list : pizzaList) {
@@ -87,5 +74,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+
     }
+
+
+
 }

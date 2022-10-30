@@ -3,18 +3,20 @@ package it.mirea.pizzeria;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-
 import java.util.List;
 import java.util.ArrayList;
 
+import it.mirea.pizzeria.databinding.ItemListBinding;
 
 
 public class PizzaAdapter extends RecyclerView.Adapter<PizzaAdapter.MyViewHolder>{
+
+
 
     private List<Pizza> mPizzas =  new ArrayList<>();
 
@@ -50,9 +52,17 @@ public class PizzaAdapter extends RecyclerView.Adapter<PizzaAdapter.MyViewHolder
             this.binding = binding;
 
 
+            itemView.findViewById(R.id.buttony).setOnClickListener(view -> {
+
+                Toast.makeText(itemView.getContext(), "Clicked Laugh Vote", Toast.LENGTH_SHORT).show();
+
+            });
+
         }
         public void bindView(Pizza pizza){
-            binding.nameTxt.setText(pizza.getTheme());
+            binding.nameTxt.setText(pizza.getName());
+            binding.pizzaTxt.setText(pizza.getPizza_name());
+            binding.receptTxt.setText(pizza.getRecept());
         }
     }
 }
