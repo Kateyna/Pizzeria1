@@ -1,15 +1,25 @@
 package it.mirea.pizzeria;
 
+import android.content.Intent;
+import android.provider.AlarmClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Locale;
+import java.util.TimeZone;
 
 import it.mirea.pizzeria.databinding.ItemListBinding;
 
@@ -28,9 +38,14 @@ public class PizzaAdapter extends RecyclerView.Adapter<PizzaAdapter.MyViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position)  {
+       // holder.nameTxt.setText(mPizzas.get(position).getName());
+     //   holder.pizzaTxt.setText(mPizzas.get(position).getName());
+      //  holder.receptTxt.setText(mPizzas.get(position).getName());
+
         Pizza pizza = mPizzas.get(position);
         holder.bindView(pizza);
+
     }
 
     @Override
@@ -47,6 +62,8 @@ public class PizzaAdapter extends RecyclerView.Adapter<PizzaAdapter.MyViewHolder
 
         ItemListBinding binding;
 
+        TextView nameTxt,pizzaTxt,receptTxt;
+
         public MyViewHolder(ItemListBinding binding){
             super(binding.getRoot());
             this.binding = binding;
@@ -54,12 +71,31 @@ public class PizzaAdapter extends RecyclerView.Adapter<PizzaAdapter.MyViewHolder
 
             itemView.findViewById(R.id.buttony).setOnClickListener(view -> {
 
-                Toast.makeText(itemView.getContext(), "Clicked Laugh Vote", Toast.LENGTH_SHORT).show();
+                Calendar alarm = new GregorianCalendar(TimeZone.getDefault());
+
+                int hour = alarm.get(Calendar.HOUR_OF_DAY);
+                int minutes = alarm.get(Calendar.MINUTE);
+
+                minutes = minutes - 400;
+
+                Toast.makeText(itemView.getContext(), "You ordered the pizza. Wait for 20 minutes", Toast.LENGTH_SHORT).show();
+                Date date = new Date();
+                Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM);
+                DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+                String timeText = timeFormat.format(date);
+                intent.putExtra(AlarmClock.EXTRA_HOUR,0);
+                intent.putExtra(AlarmClock.EXTRA_MINUTES,minutes);
+                intent.putExtra(AlarmClock.EXTRA_MESSAGE, "Pizza is done");
+
+                view.getContext().startActivity(intent);
+
+
 
             });
 
         }
         public void bindView(Pizza pizza){
+
             binding.nameTxt.setText(pizza.getName());
             binding.pizzaTxt.setText(pizza.getPizza_name());
             binding.receptTxt.setText(pizza.getRecept());

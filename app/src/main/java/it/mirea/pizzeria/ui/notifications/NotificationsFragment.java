@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,6 +14,8 @@ import androidx.fragment.app.Fragment;
 
 import org.jetbrains.annotations.NotNull;
 
+import it.mirea.pizzeria.MainActivity;
+import it.mirea.pizzeria.Pizza;
 import it.mirea.pizzeria.PizzaViewmodel;
 import it.mirea.pizzeria.R;
 import it.mirea.pizzeria.databinding.FragmentNotificationsBinding;
@@ -22,6 +25,7 @@ public class NotificationsFragment extends Fragment {
     EditText Receptpizza;
     EditText Name;
     Button button;
+    Button button2;
     PizzaViewmodel model;
     private FragmentNotificationsBinding binding;
 
@@ -36,7 +40,7 @@ public class NotificationsFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,
+    public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_notifications, container, false);
@@ -45,16 +49,21 @@ public class NotificationsFragment extends Fragment {
         return rootView;
 
 
-
-
     }
+
+
+
+
 
 
     @Override
     public void onViewCreated(@NotNull View view, @Nullable Bundle savedInstanceState) {
 
 
-
+   //     button = view.findViewById(R.id.addButton);
+   //     button2 = view.findViewById(R.id.deleteButton);
+    //    button.setOnClickListener((View.OnClickListener) this);
+     //   button2.setOnClickListener((View.OnClickListener) this);
 
 
 

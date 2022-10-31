@@ -46,8 +46,6 @@ public class DashboardFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
-
-
         return binding.getRoot();
 
 
@@ -67,9 +65,6 @@ public class DashboardFragment extends Fragment {
         binding.tutorialRecycler.setHasFixedSize(true);
         PizzaAdapter pizzaAdapter = new PizzaAdapter();
         binding.tutorialRecycler.setAdapter(pizzaAdapter);
-
-
-
         model.getAllPizzas().observe(getViewLifecycleOwner(), new Observer<List<Pizza>>() {
             @Override
             public void onChanged(List<Pizza> pizzas) {

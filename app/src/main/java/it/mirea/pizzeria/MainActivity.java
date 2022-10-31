@@ -28,12 +28,13 @@ import it.mirea.pizzeria.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
+
     private ActivityMainBinding binding;
     EditText Pizzaname;
     EditText Receptpizza;
     EditText Name;
     PizzaViewmodel model;
-
+    Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,9 +58,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-
-
-        model.update(new Pizza("kate", "mozarella", "cheese,banana"));
+        model.insert(new Pizza("kate", "mozarella", "cheese,banana"));
 
 
 

@@ -29,6 +29,4 @@ import androidx.sqlite.db.SupportSQLiteStatement;
         return INSTANCE;
 
     }
-
-
 }
