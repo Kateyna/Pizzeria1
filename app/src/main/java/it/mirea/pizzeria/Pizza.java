@@ -17,7 +17,7 @@ import java.util.List;
 @Entity
 public class Pizza {
     @PrimaryKey(autoGenerate = true)
-    public int uid;
+    public long uid;
 
     @ColumnInfo(name = "name" )
     public String name;
@@ -36,6 +36,10 @@ public class Pizza {
         this.recept = recept;
 
     }
+    public long getUid(){return uid;}
+
+    public void setUid(long uid){this.uid = uid;}
+
     public String getPizza_name() {
         return pizza_name;
     }

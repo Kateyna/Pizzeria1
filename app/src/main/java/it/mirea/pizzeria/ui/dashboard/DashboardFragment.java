@@ -1,7 +1,13 @@
 package it.mirea.pizzeria.ui.dashboard;
 
+import static android.app.Activity.RESULT_OK;
+
+
+import static it.mirea.pizzeria.ui.notifications.NotificationsFragment.ADD_NOTE_REQUEST;
+
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +25,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.List;
 
+import it.mirea.pizzeria.AppPizza;
 import it.mirea.pizzeria.Pizza;
 import it.mirea.pizzeria.PizzaAdapter;
 import it.mirea.pizzeria.PizzaViewmodel;
@@ -35,10 +42,6 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-
-
     }
 
     @Override
@@ -47,9 +50,6 @@ public class DashboardFragment extends Fragment {
 
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         return binding.getRoot();
-
-
-
 
 
     }
@@ -75,6 +75,25 @@ public class DashboardFragment extends Fragment {
 
 
     }
+
+    @Override
+    public void onActivityResult(int requestCode,int resultCode, Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+        if (requestCode == ADD_NOTE_REQUEST && resultCode == RESULT_OK){
+            String name = data.getStringExtra(AppPizza.EXTRA_NAME);
+            String pizzaname = data.getStringExtra(AppPizza.EXTRA_PIZZANAME);
+            String recept = data.getStringExtra(AppPizza.EXTRA_RECEPT);
+
+            Pizza pizza = new Pizza(name,pizzaname,recept);
+            model.insert(pizza);
+            Toast.makeText(getContext(),"Notesavcd",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(getContext(),"цфвфц",Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
     //  final TextView textView = binding.textDashboard;
     //  dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 

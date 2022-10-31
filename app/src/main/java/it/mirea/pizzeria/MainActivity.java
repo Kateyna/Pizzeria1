@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
 
         View view = binding.getRoot();
@@ -58,25 +60,15 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-        model.insert(new Pizza("kate", "mozarella", "cheese,banana"));
+        //model.insert(new Pizza(getApplicationInfo().uid, "mozarella", "cheese,banana","фцвфц"));
 
 
 
-        model.getAllPizzas().observe(this, pizzaList -> {
-
-            // if(pizzaList == null){
-            //   return;
-            //}
-
-            for (Pizza list : pizzaList) {
-                Log.d("pizzas", list.name + " " + list.pizza_name + " " + list.recept);
-
-            }
-        });
 
 
 
     }
+
 
 
 

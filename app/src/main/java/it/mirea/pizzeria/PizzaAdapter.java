@@ -39,9 +39,6 @@ public class PizzaAdapter extends RecyclerView.Adapter<PizzaAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position)  {
-       // holder.nameTxt.setText(mPizzas.get(position).getName());
-     //   holder.pizzaTxt.setText(mPizzas.get(position).getName());
-      //  holder.receptTxt.setText(mPizzas.get(position).getName());
 
         Pizza pizza = mPizzas.get(position);
         holder.bindView(pizza);
@@ -62,7 +59,8 @@ public class PizzaAdapter extends RecyclerView.Adapter<PizzaAdapter.MyViewHolder
 
         ItemListBinding binding;
 
-        TextView nameTxt,pizzaTxt,receptTxt;
+        TextView nameTxt,pizzaTxt,receptTxt,time;
+
 
         public MyViewHolder(ItemListBinding binding){
             super(binding.getRoot());
@@ -86,12 +84,7 @@ public class PizzaAdapter extends RecyclerView.Adapter<PizzaAdapter.MyViewHolder
                 intent.putExtra(AlarmClock.EXTRA_HOUR,0);
                 intent.putExtra(AlarmClock.EXTRA_MINUTES,minutes);
                 intent.putExtra(AlarmClock.EXTRA_MESSAGE, "Pizza is done");
-
                 view.getContext().startActivity(intent);
-
-
-
-
 
             });
 

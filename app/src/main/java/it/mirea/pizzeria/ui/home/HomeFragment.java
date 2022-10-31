@@ -11,17 +11,30 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.TimeZone;
+
+import it.mirea.pizzeria.Pizza;
+import it.mirea.pizzeria.PizzaAdapter;
+import it.mirea.pizzeria.PizzaViewmodel;
+import it.mirea.pizzeria.R;
 import it.mirea.pizzeria.databinding.FragmentHomeBinding;
 
 
 public class HomeFragment extends Fragment  {
 
     private FragmentHomeBinding binding;
+    PizzaViewmodel model;
     Button mButton;
+    TextView textView;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -34,14 +47,12 @@ public class HomeFragment extends Fragment  {
         return binding.getRoot();
 
 
-
-
-
-
     }
 
     @Override
     public void onViewCreated(@NotNull View view, @Nullable Bundle savedInstanceState) {
+
+
 
     }
 

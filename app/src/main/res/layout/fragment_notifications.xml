@@ -7,81 +7,46 @@
     tools:context=".ui.notifications.NotificationsFragment">
 
 
-    <EditText
-        android:id="@+id/Name"
-        android:layout_width="305dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="30dp"
-        android:maxLength="8"
-        android:hint="Add your name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/Pizzaname"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:maxLength="8"
-        android:hint="Add pizza name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Name" />
-
-    <EditText
-        android:id="@+id/Receptpizza"
-        android:layout_width="300dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="30dp"
-        android:maxLength="8"
-        android:hint="Add recept pizza"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Pizzaname" />
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/addButton"
         android:layout_width="326dp"
         android:layout_height="49dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="42dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="188dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="35dp"
         android:background="@drawable/custom_button"
-        android:onClick="onMyButtonClick"
         android:text="add pizza"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#00FFFFFF"
         android:textColorHint="#000000"
         android:textColorLink="#00FFFFFF"
-        app:backgroundTint="@android:color/holo_orange_dark"
+        app:backgroundTint="#652A2A"
+        app:layout_constraintBottom_toTopOf="@+id/deleteButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Receptpizza" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/deleteButton"
         android:layout_width="309dp"
         android:layout_height="39dp"
         android:layout_marginStart="42dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="42dp"
+        android:layout_marginBottom="420dp"
         android:background="@drawable/custom_button"
         android:text="delete last pizza"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#00FFFFFF"
         android:textColorHint="#000000"
-        android:textColorLink="#00FFFFFF"
-        app:backgroundTint="@android:color/holo_orange_dark"
-        app:layout_constraintEnd_toEndOf="parent"
 
+        android:textColorLink="#00FFFFFF"
+        app:backgroundTint="#8A1717"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Receptpizza" />
+        app:layout_constraintTop_toBottomOf="@+id/addButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
