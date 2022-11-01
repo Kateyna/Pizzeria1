@@ -74,7 +74,7 @@ public class PizzaAdapter extends RecyclerView.Adapter<PizzaAdapter.MyViewHolder
                 int hour = alarm.get(Calendar.HOUR_OF_DAY);
                 int minutes = alarm.get(Calendar.MINUTE);
 
-                minutes = minutes - 400;
+                minutes = minutes - 340;
 
                 Toast.makeText(itemView.getContext(), "You ordered the pizza. Wait for 20 minutes", Toast.LENGTH_SHORT).show();
                 Date date = new Date();

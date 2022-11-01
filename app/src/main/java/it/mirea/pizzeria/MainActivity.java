@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-        //model.insert(new Pizza(getApplicationInfo().uid, "mozarella", "cheese,banana","фцвфц"));
+        //model.insert(new Pizza(0,"Anna","barbecue" ,"chiken, barbecue"));
 
 
 

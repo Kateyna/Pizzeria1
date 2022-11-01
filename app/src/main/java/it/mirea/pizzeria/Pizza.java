@@ -30,7 +30,8 @@ public class Pizza {
 
 
 
-    public Pizza(String name, String pizza_name, String recept){
+    public Pizza(long uid,String name, String pizza_name, String recept){
+        this.uid = uid;
         this.pizza_name = pizza_name;
         this.name = name;
         this.recept = recept;
@@ -52,7 +53,7 @@ public class Pizza {
         return name;
     }
 
-    public void getName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 

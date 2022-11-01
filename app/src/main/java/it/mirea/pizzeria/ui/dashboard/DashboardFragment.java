@@ -84,7 +84,7 @@ public class DashboardFragment extends Fragment {
             String pizzaname = data.getStringExtra(AppPizza.EXTRA_PIZZANAME);
             String recept = data.getStringExtra(AppPizza.EXTRA_RECEPT);
 
-            Pizza pizza = new Pizza(name,pizzaname,recept);
+            Pizza pizza = new Pizza(0,name,pizzaname,recept);
             model.insert(pizza);
             Toast.makeText(getContext(),"Notesavcd",Toast.LENGTH_SHORT).show();
         }
