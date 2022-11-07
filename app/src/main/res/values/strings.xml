@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Pizzeria</string>
-    <string name="title_home">Shopping basket</string>
+    <string name="title_home">Classical Pizza</string>
     <string name="title_dashboard">List</string>
     <string name="title_notifications">Create Pizza</string>
 </resources>
