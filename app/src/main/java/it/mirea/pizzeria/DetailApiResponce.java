@@ -6,8 +6,10 @@ import java.util.List;
 
 public class DetailApiResponce {
     private int id;
+
     @SerializedName("body")
     private String name;
+
     private boolean veg;
     private int price;
     private String description;
@@ -24,6 +26,7 @@ public class DetailApiResponce {
     public boolean isVeg() {
         return veg;
     }
+
 
     public int getPrice() {
         return price;
