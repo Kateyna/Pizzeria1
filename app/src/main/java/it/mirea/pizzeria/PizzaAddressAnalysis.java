@@ -1,9 +1,9 @@
 package it.mirea.pizzeria;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -13,50 +13,52 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PizzaAddressAnalysis  {
     private  DataPizzaAPI api;
-    private MutableLiveData<DetailApiResponce> detailApiResponceMutableLiveData;
+    private MutableLiveData<pizzas> pizzasMutableLiveData;
 
 
 
 
     public PizzaAddressAnalysis() {
 
-        detailApiResponceMutableLiveData = new MutableLiveData<>();
+        pizzasMutableLiveData = new MutableLiveData<>();
 
 
         Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://pizza-and-desserts.p.rapidapi.com/pizzas")
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://pizza-and-desserts.p.rapidapi.com/")
                 .build();
 
         api = retrofit.create(DataPizzaAPI.class);
 
     }
 
-    public LiveData<DetailApiResponce> getIssues(String owner, String repo) {
+    public void getIssues(String name, String price) {
 
-        final MutableLiveData<DetailApiResponce> liveData = new MutableLiveData<>();
+        final MutableLiveData<pizzas> liveData = new MutableLiveData<>();
 
-        Call<DetailApiResponce> call = api.getIssues(owner,repo);
+        Call<pizzas> call = api.getIssues(name,price);
 
-        call.enqueue(new Callback<DetailApiResponce>() {
+        call.enqueue(new Callback<pizzas>() {
             @Override
-            public void onResponse(Call<DetailApiResponce> call, Response<DetailApiResponce> response) {
-                detailApiResponceMutableLiveData.postValue(response.body());
-
+            public void onResponse(Call<pizzas> name, Response<pizzas> response) {
+                if (response.body() == null) {
+                    pizzasMutableLiveData.postValue(response.body());
+                    Log.v("Tag","the response" + response.body().toString());
                 }
 
+               }
+
             @Override
-            public void onFailure(Call<DetailApiResponce> call, Throwable t) {
-                detailApiResponceMutableLiveData.postValue(null);
+            public void onFailure(Call<pizzas> call, Throwable t) {
+                pizzasMutableLiveData.postValue(null);
+
             }
 
 
         });
-        return liveData;
-
     }
-    public LiveData<DetailApiResponce> getVolumesResponseLiveData() {
-        return detailApiResponceMutableLiveData;
+    public LiveData<pizzas> getVolumesResponseLiveData() {
+        return pizzasMutableLiveData;
     }
 
 }

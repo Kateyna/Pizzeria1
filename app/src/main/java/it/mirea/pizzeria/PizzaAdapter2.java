@@ -24,13 +24,12 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 import it.mirea.pizzeria.databinding.ItemList2Binding;
-import it.mirea.pizzeria.databinding.ItemListBinding;
 
 public class PizzaAdapter2 extends RecyclerView.Adapter<PizzaAdapter2.MyViewHolder2>{
 
 
 
-    private List <DetailApiResponce> nPizzas =  new ArrayList<>();
+    private List <pizzas> moli =  new ArrayList<>();
 
     @NonNull
     @Override
@@ -42,22 +41,19 @@ public class PizzaAdapter2 extends RecyclerView.Adapter<PizzaAdapter2.MyViewHold
     @Override
     public void onBindViewHolder( MyViewHolder2  holder, int position)  {
 
-        DetailApiResponce detailApiResponce = nPizzas.get(position);
-
-        holder.pizzaTxt.setText(detailApiResponce.getName());
-        holder.nameTxt.setText(detailApiResponce.getDescription());
-        Picasso.get().load(detailApiResponce.getImg()).into(holder.imageView);
+        pizzas pizzas = moli.get(position);
+        Picasso.get().load(pizzas.getImg()).into(holder.imageView);
 
 
     }
 
     @Override
     public int getItemCount() {
-        return nPizzas.size();
+        return moli.size();
     }
 
-    public void setPizza2(List<DetailApiResponce> strings){
-        this.nPizzas = strings;
+    public void setPizza2(List<pizzas> oli){
+        this.moli = oli;
         notifyDataSetChanged();
     }
 
@@ -65,14 +61,16 @@ public class PizzaAdapter2 extends RecyclerView.Adapter<PizzaAdapter2.MyViewHold
 
         ItemList2Binding binding;
 
-        TextView nameTxt,pizzaTxt,receptTxt,time;
-        ImageView imageView;
+        private TextView nameTxt,pizzaTxt,receptTxt,time;
+        private ImageView imageView;
 
         public MyViewHolder2(ItemList2Binding binding){
             super(binding.getRoot());
             this.binding = binding;
 
-            pizzaTxt = (TextView) binding.getRoot().findViewById(R.id.pizza2_txt);
+            pizzaTxt = (TextView) binding.getRoot().findViewById(R.id.name_txt);
+            nameTxt = (TextView) binding.getRoot().findViewById(R.id.name_txt);
+            imageView = (ImageView) binding.getRoot().findViewById(R.id.imageView);
 
 
             itemView.findViewById(R.id.buttony2).setOnClickListener(view -> {

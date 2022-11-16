@@ -5,15 +5,14 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MediatorLiveData;
-import androidx.lifecycle.ViewModel;
 
 public class NewPizzaViewmodel extends AndroidViewModel {
-    private LiveData<DetailApiResponce> detailApiResponceMutableLiveData;
+    private LiveData<pizzas> detailApiResponceMutableLiveData;
     private PizzaAddressAnalysis mIssueRepository;
     // No argument constructor
     public NewPizzaViewmodel(@NonNull Application application) {
         super(application);
+
 
     }
 
@@ -24,7 +23,7 @@ public class NewPizzaViewmodel extends AndroidViewModel {
 
 
 
-    public LiveData<DetailApiResponce> getVolumesResponseLiveData() {
+    public LiveData<pizzas> getVolumesResponseLiveData() {
         return detailApiResponceMutableLiveData;
     }
 }
