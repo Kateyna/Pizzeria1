@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PizzaAddressAnalysis  {
     private  DataPizzaAPI api;
-    private MutableLiveData<pizzas> pizzasMutableLiveData;
+    private MutableLiveData<drinks> pizzasMutableLiveData;
 
 
 
@@ -23,41 +23,34 @@ public class PizzaAddressAnalysis  {
         pizzasMutableLiveData = new MutableLiveData<>();
 
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://pizza-and-desserts.p.rapidapi.com/pizzas")
+        api  = new retrofit2.Retrofit.Builder()
+                .baseUrl("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .build();
+                .build()
+                .create(DataPizzaAPI.class);
 
-        api = retrofit.create(DataPizzaAPI.class);
+
 
     }
 
-    public void getIssues(String name, String price) {
-
-        final MutableLiveData<pizzas> liveData = new MutableLiveData<>();
-
-        Call<pizzas> call = api.getIssues(name,price);
-
-        call.enqueue(new Callback<pizzas>() {
+    public void getIssues(String strDrinkThumb) {
+        api.getIssues(strDrinkThumb).enqueue(new Callback<drinks>() {
             @Override
-            public void onResponse(Call<pizzas> name, Response<pizzas> response) {
+            public void onResponse(Call<drinks> call, Response<drinks> response) {
                 if (response.body() == null) {
-                    pizzasMutableLiveData.postValue(response.body());
+                    pizzasMutableLiveData.setValue(response.body());
                     Log.v("Tag","the response" + response.body().toString());
                 }
-
-               }
-
-            @Override
-            public void onFailure(Call<pizzas> call, Throwable t) {
-                pizzasMutableLiveData.postValue(null);
-
             }
 
-
+            @Override
+            public void onFailure(Call<drinks> call, Throwable t) {
+                pizzasMutableLiveData.setValue(null);
+            }
         });
+
     }
-    public LiveData<pizzas> getVolumesResponseLiveData() {
+    public LiveData<drinks> getVolumesResponseLiveData() {
         return pizzasMutableLiveData;
     }
 

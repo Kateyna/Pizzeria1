@@ -6,8 +6,10 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 public class NewPizzaViewmodel extends AndroidViewModel {
-    private LiveData<pizzas> detailApiResponceMutableLiveData;
+    private LiveData<drinks> detailApiResponceMutableLiveData;
     private PizzaAddressAnalysis mIssueRepository;
     // No argument constructor
     public NewPizzaViewmodel(@NonNull Application application) {
@@ -23,7 +25,8 @@ public class NewPizzaViewmodel extends AndroidViewModel {
 
 
 
-    public LiveData<pizzas> getVolumesResponseLiveData() {
+
+    public LiveData<drinks> getVolumesResponseLiveData() {
         return detailApiResponceMutableLiveData;
     }
 }
