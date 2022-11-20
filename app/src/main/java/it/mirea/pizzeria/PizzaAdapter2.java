@@ -1,35 +1,25 @@
 package it.mirea.pizzeria;
 
-import android.content.Intent;
-import android.provider.AlarmClock;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.util.Util;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.Locale;
-import java.util.TimeZone;
 
 import it.mirea.pizzeria.databinding.ItemList2Binding;
+import it.mirea.pizzeria.databinding.ItemListBinding;
 
-public class PizzaAdapter2 extends RecyclerView.Adapter<PizzaAdapter2.MyViewHolder2>{
-
-
-
-    private List <drinks> moli =  new ArrayList<>();
+public class PizzaAdapter2 extends RecyclerView.Adapter<PizzaAdapter2.MyViewHolder2> {
+    private List<list> results = new ArrayList<>();
 
     @NonNull
     @Override
@@ -39,49 +29,41 @@ public class PizzaAdapter2 extends RecyclerView.Adapter<PizzaAdapter2.MyViewHold
     }
 
     @Override
-    public void onBindViewHolder( MyViewHolder2  holder, int position)  {
-
-        drinks drinks = moli.get(position);
-        holder.bindView(drinks);
-
-
-
+    public void onBindViewHolder(@NonNull MyViewHolder2 holder, int position) {
+        list list = results.get(position);
+        holder.titleTextView.setText(list.getName2());
+        holder.bindView(list);
     }
 
     @Override
     public int getItemCount() {
-        return moli.size();
+        return results.size();
     }
 
-    public void setPizza2(List<drinks> oli){
-        this.moli = oli;
+    public void setResults(List<list> results) {
+        this.results = results;
         notifyDataSetChanged();
     }
 
-    public static class MyViewHolder2 extends RecyclerView.ViewHolder {
+    class MyViewHolder2 extends RecyclerView.ViewHolder {
+         TextView titleTextView;
+         ItemList2Binding binding;
 
-        ItemList2Binding binding;
-        private TextView drinks;
-        private ImageView imageView;
 
-        public MyViewHolder2(ItemList2Binding binding){
+        public MyViewHolder2(ItemList2Binding binding) {
             super(binding.getRoot());
             this.binding = binding;
 
 
-            drinks = (TextView)binding.getRoot().findViewById(R.id.drink_txt);
-
-
-
-
+            titleTextView = itemView.findViewById(R.id.drink_txt);
         }
 
-        public void bindView(drinks drinks){
-            binding.drinkTxt.setText(drinks.getStrDrink());
+        public void bindView(list list){
+
+            binding.drinkTxt.setText(list.getCode());
 
         }
 
     }
-
 
 }

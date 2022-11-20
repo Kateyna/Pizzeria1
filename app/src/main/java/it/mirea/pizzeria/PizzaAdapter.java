@@ -91,7 +91,7 @@ public class PizzaAdapter extends RecyclerView.Adapter<PizzaAdapter.MyViewHolder
         }
         public void bindView(Pizza pizza){
 
-            binding.nameTxt.setText(pizza.getName());
+            binding.nameTxt.setText(pizza.getNamei());
             binding.pizzaTxt.setText(pizza.getPizza_name());
             binding.receptTxt.setText(pizza.getRecept());
         }

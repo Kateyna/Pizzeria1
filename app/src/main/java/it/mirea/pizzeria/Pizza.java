@@ -2,7 +2,7 @@ package it.mirea.pizzeria;
 
 import android.app.Person;
 
-import org.jetbrains.annotations.NotNull;
+
 
 import androidx.room.ColumnInfo;
 import androidx.room.Dao;
@@ -20,7 +20,7 @@ public class Pizza {
     public long uid;
 
     @ColumnInfo(name = "name" )
-    public String name;
+    public String namei;
 
     @ColumnInfo(name = "pizza_name" )
     public String pizza_name;
@@ -30,10 +30,10 @@ public class Pizza {
 
 
 
-    public Pizza(long uid,String name, String pizza_name, String recept){
+    public Pizza(long uid,String namei, String pizza_name, String recept){
         this.uid = uid;
         this.pizza_name = pizza_name;
-        this.name = name;
+        this.namei = namei;
         this.recept = recept;
 
     }
@@ -51,12 +51,12 @@ public class Pizza {
         this.pizza_name = pizza_name;
     }
 
-    public String getName() {
-        return name;
+    public String getNamei() {
+        return namei;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.namei = name;
     }
 
     public String getRecept() {

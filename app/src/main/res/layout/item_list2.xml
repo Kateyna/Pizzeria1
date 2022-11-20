@@ -10,7 +10,7 @@
     android:adjustViewBounds="true"
     android:background="@drawable/custom_button"
     android:elevation="5dp"
-    tools:context=".ui.home.HomeFragment">
+        >
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,7 +23,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="188dp"
+            android:layout_marginBottom="215dp"
             android:text="drink"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

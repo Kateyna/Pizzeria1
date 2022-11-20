@@ -6,10 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import java.util.List;
+
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class NewPizzaViewmodel extends AndroidViewModel {
-    private LiveData<drinks> detailApiResponceMutableLiveData;
+    private LiveData<List<list>> detailApiResponceMutableLiveData;
     private PizzaAddressAnalysis mIssueRepository;
     // No argument constructor
     public NewPizzaViewmodel(@NonNull Application application) {
@@ -23,10 +25,15 @@ public class NewPizzaViewmodel extends AndroidViewModel {
         detailApiResponceMutableLiveData = mIssueRepository.getVolumesResponseLiveData();
     }
 
+    public void newPizzas(String countries) {
+        Dotenv dotenv = Dotenv.configure().directory("/assets").filename("env").load();
+        mIssueRepository.newPizzas(countries);
+    }
 
 
 
-    public LiveData<drinks> getVolumesResponseLiveData() {
+
+    public LiveData<List<list>> getVolumesResponseLiveData() {
         return detailApiResponceMutableLiveData;
     }
 }
