@@ -11,7 +11,7 @@ import java.util.List;
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class NewPizzaViewmodel extends AndroidViewModel {
-    private LiveData<List<list>> detailApiResponceMutableLiveData;
+    private LiveData<List<countries>> detailApiResponceMutableLiveData;
     private PizzaAddressAnalysis mIssueRepository;
     // No argument constructor
     public NewPizzaViewmodel(@NonNull Application application) {
@@ -25,15 +25,14 @@ public class NewPizzaViewmodel extends AndroidViewModel {
         detailApiResponceMutableLiveData = mIssueRepository.getVolumesResponseLiveData();
     }
 
-    public void newPizzas(String countries) {
-        Dotenv dotenv = Dotenv.configure().directory("/assets").filename("env").load();
-        mIssueRepository.newPizzas(countries);
-    }
 
 
 
 
-    public LiveData<List<list>> getVolumesResponseLiveData() {
+    public LiveData<List<countries>> getVolumesResponseLiveData() {
         return detailApiResponceMutableLiveData;
     }
 }
+
+
+

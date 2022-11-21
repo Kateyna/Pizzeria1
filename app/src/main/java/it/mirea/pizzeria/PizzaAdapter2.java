@@ -1,25 +1,19 @@
 package it.mirea.pizzeria;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.util.Util;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import it.mirea.pizzeria.databinding.ItemList2Binding;
-import it.mirea.pizzeria.databinding.ItemListBinding;
 
 public class PizzaAdapter2 extends RecyclerView.Adapter<PizzaAdapter2.MyViewHolder2> {
-    private List<list> results = new ArrayList<>();
+    private List<countries> results = new ArrayList<>();
 
     @NonNull
     @Override
@@ -30,9 +24,9 @@ public class PizzaAdapter2 extends RecyclerView.Adapter<PizzaAdapter2.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder2 holder, int position) {
-        list list = results.get(position);
-        holder.titleTextView.setText(list.getName2());
-        holder.bindView(list);
+        countries countries = results.get(position);
+        holder.titleTextView.setText(countries.getName2());
+        holder.bindView(countries);
     }
 
     @Override
@@ -40,13 +34,13 @@ public class PizzaAdapter2 extends RecyclerView.Adapter<PizzaAdapter2.MyViewHold
         return results.size();
     }
 
-    public void setResults(List<list> results) {
+    public void setResults(List<countries> results) {
         this.results = results;
         notifyDataSetChanged();
     }
 
     class MyViewHolder2 extends RecyclerView.ViewHolder {
-         TextView titleTextView;
+         TextView titleTextView,titleTextView1,titleTextView2;
          ItemList2Binding binding;
 
 
@@ -55,13 +49,18 @@ public class PizzaAdapter2 extends RecyclerView.Adapter<PizzaAdapter2.MyViewHold
             this.binding = binding;
 
 
+            titleTextView2 = itemView.findViewById(R.id.drink_txt3);
+
+            titleTextView1 = itemView.findViewById(R.id.drink_txt2);
             titleTextView = itemView.findViewById(R.id.drink_txt);
         }
 
-        public void bindView(list list){
+        public void bindView(countries countries){
 
-            binding.drinkTxt.setText(list.getCode());
-
+            binding.drinkTxt.setText(countries.getCode());
+            binding.drinkTxt2.setText(countries.getId2());
+            binding.drinkTxt3.setText(countries.getName2());
+            binding.drinkTxt4.setText(countries.getCurrency());
         }
 
     }

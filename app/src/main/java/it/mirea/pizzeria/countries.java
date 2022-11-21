@@ -1,13 +1,9 @@
 package it.mirea.pizzeria;
 
-import androidx.room.ColumnInfo;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
-public class list {
+public class countries {
     //private int id;
 
     // @SerializedName("name")
@@ -34,22 +30,13 @@ public class list {
 
 
 
-    @SerializedName("id")
-    @Expose
+
     private int id;
 
-    @SerializedName("code")
-    @Expose
     private String code;
 
-
-    @SerializedName("name")
-    @Expose
     private String name;
 
-
-    @SerializedName("currency")
-    @Expose
     private String currency;
 
 
@@ -89,6 +76,7 @@ public class list {
     public int getId2(){
         return id;
     }
+
     public String getCode() {
         return code;
     }
@@ -98,7 +86,7 @@ public class list {
     }
 
     public String getName2() {
-        return currency;
+        return name;
     }
 
 
