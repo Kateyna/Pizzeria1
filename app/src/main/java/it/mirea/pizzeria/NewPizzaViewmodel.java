@@ -5,34 +5,36 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.lifecycle.HiltViewModel;
 import io.github.cdimascio.dotenv.Dotenv;
 
-public class NewPizzaViewmodel extends AndroidViewModel {
-    private LiveData<List<countries>> detailApiResponceMutableLiveData;
-    private PizzaAddressAnalysis mIssueRepository;
-    // No argument constructor
-    public NewPizzaViewmodel(@NonNull Application application) {
-        super(application);
+@HiltViewModel
+public class NewPizzaViewmodel extends ViewModel {
+    MutableLiveData<List<RecyclerData>> liveData;
 
+    @Inject
+    RetroServiceInterface retroServiceInterface;
 
+    @Inject
+    public NewPizzaViewmodel() {
+        liveData = new MutableLiveData();
     }
 
-    public void init() {
-        mIssueRepository = new PizzaAddressAnalysis();
-        detailApiResponceMutableLiveData = mIssueRepository.getVolumesResponseLiveData();
+    public MutableLiveData<List<RecyclerData>> getLiveData() {
+        return liveData;
     }
 
-
-
-
-
-    public LiveData<List<countries>> getVolumesResponseLiveData() {
-        return detailApiResponceMutableLiveData;
+    public void makeApiCall() {
+        RetroRepository retroRepository = new RetroRepository(retroServiceInterface);
+        retroRepository.makeAPICall("pizza", liveData);
     }
 }
-
 
 
