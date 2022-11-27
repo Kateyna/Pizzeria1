@@ -10,12 +10,12 @@ import java.util.List;
 
 public class PizzaViewmodel extends AndroidViewModel {
 
-    private PizzaRepozitory repozitory;
+    private PizzaRepository repozitory;
     private LiveData<List<Pizza>> pizzaList;
 
     public PizzaViewmodel(@NonNull Application application) {
         super(application);
-        repozitory = new PizzaRepozitory(application);
+        repozitory = new PizzaRepository(application);
         pizzaList = repozitory.getAllPizzas();
     }
 

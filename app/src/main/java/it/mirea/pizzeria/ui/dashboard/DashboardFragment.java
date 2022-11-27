@@ -6,14 +6,12 @@ import static android.app.Activity.RESULT_OK;
 import static it.mirea.pizzeria.ui.notifications.NotificationsFragment.ADD_NOTE_REQUEST;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,7 +23,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.List;
 
-import it.mirea.pizzeria.AppPizza;
+import it.mirea.pizzeria.AddPizza;
 import it.mirea.pizzeria.Pizza;
 import it.mirea.pizzeria.PizzaAdapter;
 import it.mirea.pizzeria.PizzaViewmodel;
@@ -58,13 +56,11 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-
-
         model = new ViewModelProvider(this).get(PizzaViewmodel.class);
-        binding.tutorialRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.tutorialRecycler.setHasFixedSize(true);
+        binding.PizzaRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.PizzaRecycler.setHasFixedSize(true);
         PizzaAdapter pizzaAdapter = new PizzaAdapter();
-        binding.tutorialRecycler.setAdapter(pizzaAdapter);
+        binding.PizzaRecycler.setAdapter(pizzaAdapter);
         model.getAllPizzas().observe(getViewLifecycleOwner(), new Observer<List<Pizza>>() {
             @Override
             public void onChanged(List<Pizza> pizzas) {
@@ -80,9 +76,9 @@ public class DashboardFragment extends Fragment {
     public void onActivityResult(int requestCode,int resultCode, Intent data){
         super.onActivityResult(requestCode,resultCode,data);
         if (requestCode == ADD_NOTE_REQUEST && resultCode == RESULT_OK){
-            String name = data.getStringExtra(AppPizza.EXTRA_NAME);
-            String pizzaname = data.getStringExtra(AppPizza.EXTRA_PIZZANAME);
-            String recept = data.getStringExtra(AppPizza.EXTRA_RECEPT);
+            String name = data.getStringExtra(AddPizza.EXTRA_NAME);
+            String pizzaname = data.getStringExtra(AddPizza.EXTRA_PIZZANAME);
+            String recept = data.getStringExtra(AddPizza.EXTRA_RECEPT);
 
             Pizza pizza = new Pizza(0,name,pizzaname,recept);
             model.insert(pizza);

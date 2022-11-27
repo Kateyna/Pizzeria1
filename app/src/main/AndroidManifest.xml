@@ -7,7 +7,6 @@
 
     <application
         android:allowBackup="true"
-        android:name=".MyApplication"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -16,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pizzeria"
         tools:targetApi="32">
-        
+
         <activity
             android:name="it.mirea.pizzeria.MainActivity"
             android:exported="true"
@@ -33,7 +32,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.ALTERNATIVE" />
+
                 <data android:scheme="http"/>
                 <data android:scheme="https"/>
 
@@ -43,10 +42,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name="it.mirea.pizzeria.AppPizza"
+        <activity android:name="it.mirea.pizzeria.AddPizza"
             android:parentActivityName=".MainActivity"/>
-        <activity android:name=".Ludi"
-            android:exported="false"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

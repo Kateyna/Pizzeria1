@@ -9,12 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.jar.Attributes;
-
-import it.mirea.pizzeria.databinding.ActivityAddBinding;
-import it.mirea.pizzeria.databinding.FragmentNotificationsBinding;
-
-public class AppPizza extends AppCompatActivity {
+public class AddPizza extends AppCompatActivity {
     public static final String EXTRA_NAME = "com.codinginflow.architectureexample.EXTRA_NAME";
     public static final String EXTRA_PIZZANAME = "com.codinginflow.architectureexample.EXTRA_PIZZANAME";
     public static final String EXTRA_RECEPT = "com.codinginflow.architectureexample.EXTRA_RECEPT";

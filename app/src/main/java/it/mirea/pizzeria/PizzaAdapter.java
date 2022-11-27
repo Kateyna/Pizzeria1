@@ -21,10 +21,10 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import it.mirea.pizzeria.databinding.ItemListBinding;
+import it.mirea.pizzeria.databinding.ItemPizzaListBinding;
 
 
-public class PizzaAdapter extends RecyclerView.Adapter<PizzaAdapter.MyViewHolder>{
+public class PizzaAdapter extends RecyclerView.Adapter<PizzaAdapter.PizzaViewHolder>{
 
 
 
@@ -32,13 +32,13 @@ public class PizzaAdapter extends RecyclerView.Adapter<PizzaAdapter.MyViewHolder
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemListBinding binding = ItemListBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
-        return new MyViewHolder(binding);
+    public PizzaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        ItemPizzaListBinding binding = ItemPizzaListBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        return new PizzaViewHolder(binding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position)  {
+    public void onBindViewHolder(@NonNull PizzaViewHolder holder, int position)  {
 
         Pizza pizza = mPizzas.get(position);
         holder.bindView(pizza);
@@ -55,14 +55,14 @@ public class PizzaAdapter extends RecyclerView.Adapter<PizzaAdapter.MyViewHolder
         notifyDataSetChanged();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class PizzaViewHolder extends RecyclerView.ViewHolder {
 
-        ItemListBinding binding;
+        ItemPizzaListBinding binding;
 
         TextView nameTxt,pizzaTxt,receptTxt,time;
 
 
-        public MyViewHolder(ItemListBinding binding){
+        public PizzaViewHolder(ItemPizzaListBinding binding){
             super(binding.getRoot());
             this.binding = binding;
 
@@ -90,7 +90,6 @@ public class PizzaAdapter extends RecyclerView.Adapter<PizzaAdapter.MyViewHolder
 
         }
         public void bindView(Pizza pizza){
-
             binding.nameTxt.setText(pizza.getNamei());
             binding.pizzaTxt.setText(pizza.getPizza_name());
             binding.receptTxt.setText(pizza.getRecept());

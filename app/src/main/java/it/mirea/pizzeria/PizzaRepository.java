@@ -3,19 +3,16 @@ package it.mirea.pizzeria;
 import android.app.Application;
 import android.os.AsyncTask;
 
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
-import java.nio.channels.AsynchronousChannelGroup;
 import java.util.List;
 
-public class PizzaRepozitory  {
+public class PizzaRepository {
 
     private PizzaDAO mPizzaDao;
     private LiveData<List<Pizza>> mAllPizzas ;
 
-    public PizzaRepozitory (Application application){
+    public PizzaRepository(Application application){
         PizzaDatabase db = PizzaDatabase.getDatabase(application);
         mPizzaDao = db.pizzaDAO();
         mAllPizzas = mPizzaDao.getAllPizzasLive();

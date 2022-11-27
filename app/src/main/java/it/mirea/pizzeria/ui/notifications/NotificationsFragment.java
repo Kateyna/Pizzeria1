@@ -8,13 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import it.mirea.pizzeria.AppPizza;
+import it.mirea.pizzeria.AddPizza;
 import it.mirea.pizzeria.PizzaViewmodel;
 import it.mirea.pizzeria.R;
 import it.mirea.pizzeria.databinding.FragmentNotificationsBinding;
@@ -53,7 +52,7 @@ public class NotificationsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getContext(), "You ordered the pizza. Wait for 20 minutes", Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(getContext(), AppPizza.class);
+                Intent intent=new Intent(getContext(), AddPizza.class);
                 startActivityForResult(intent,ADD_NOTE_REQUEST);
             }
         });

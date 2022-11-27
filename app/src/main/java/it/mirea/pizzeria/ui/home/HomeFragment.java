@@ -1,6 +1,5 @@
 package it.mirea.pizzeria.ui.home;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -19,27 +17,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import it.mirea.pizzeria.AppPizza;
-import it.mirea.pizzeria.Ludi;
-import it.mirea.pizzeria.RetroRepository;
+import it.mirea.pizzeria.CountriesAdapter;
+import it.mirea.pizzeria.CountriesRepository;
 import it.mirea.pizzeria.R;
-import it.mirea.pizzeria.RecyclerList;
-import it.mirea.pizzeria.NewPizzaViewmodel;
+import it.mirea.pizzeria.CountriesViewmodel;
+import it.mirea.pizzeria.countries;
 import it.mirea.pizzeria.databinding.FragmentHomeBinding;
 
 
 public class HomeFragment extends Fragment  {
+    CountriesAdapter adapter;
     FragmentHomeBinding binding;
-    NewPizzaViewmodel model2;
-    RetroRepository repoz;
+    CountriesViewmodel model2;
+    CountriesRepository repoz;
     Button mButton;
-    TextView textView;
-    TextView textView2;
-    TextView textView3;
-    TextView textView4;
+    TextView TextViewcode;
+    TextView TextViewid;
+    TextView TextViewName;
+    TextView TextViewCurrency;
     RecyclerView recyclerView;
     ImageView imageView;
-    Button button;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,13 +58,20 @@ public class HomeFragment extends Fragment  {
 
     @Override
     public void onViewCreated( View view, @Nullable Bundle savedInstanceState) {
-        button = view.findViewById(R.id.buttonS);
-        button.setOnClickListener(new View.OnClickListener() {
+        recyclerView = view.findViewById(R.id.CountriesRecycler);
+        TextViewcode = view.findViewById(R.id.codeTxt);
+        TextViewid = view.findViewById(R.id.idTxt);
+        TextViewName = view.findViewById(R.id.nameTxt);
+        TextViewCurrency = view.findViewById(R.id.CurrencyTxt);
+        adapter = new CountriesAdapter();
+        model2 = new ViewModelProvider(this).get(CountriesViewmodel.class);
+        model2.init();
+        binding.CountriesRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.CountriesRecycler.setAdapter(adapter);
+        model2.getDodoResponseApiData().observe(getViewLifecycleOwner(), new Observer<List<countries>>() {
             @Override
-            public void onClick(View view) {
-                Toast.makeText(getContext(), "You ordered the pizza. Wait for 20 minutes", Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(getContext(), Ludi.class);
-                startActivity(intent);
+            public void onChanged(List<countries> countries) {
+                adapter.setCountries(countries);
             }
         });
 
