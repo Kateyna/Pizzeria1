@@ -33,8 +33,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="http"/>
-                <data android:scheme="https"/>
+                <data
+                    android:scheme="https"
+                    android:host="rf.pizzeria_app"/>
 
             </intent-filter>
 
@@ -44,6 +45,10 @@
         </activity>
         <activity android:name="it.mirea.pizzeria.AddPizza"
             android:parentActivityName=".MainActivity"/>
+        <activity android:name="it.mirea.pizzeria.Login"
+            android:exported="false"/>
+        <activity android:name="it.mirea.pizzeria.Registration"
+            android:exported="false"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
