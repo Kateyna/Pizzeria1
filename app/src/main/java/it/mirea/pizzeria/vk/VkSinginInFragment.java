@@ -17,14 +17,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import it.mirea.pizzeria.ConfigUser;
 import it.mirea.pizzeria.DBProfile;
+import it.mirea.pizzeria.MainActivity;
 import it.mirea.pizzeria.ProfileViewModel;
 import it.mirea.pizzeria.R;
+import it.mirea.pizzeria.SignUpFragment;
 import it.mirea.pizzeria.databinding.FragmentVkSignInBinding;
+import it.mirea.pizzeria.databinding.FragmentVkSignUpBinding;
 import it.mirea.pizzeria.databinding.LoginActivityBinding;
 
 public class VkSignInFragment extends Fragment {
 
-    LoginActivityBinding binding;
+    FragmentVkSignInBinding binding;
     VkViewModel model;
     ProfileViewModel pModel;
 
@@ -38,7 +41,7 @@ public class VkSignInFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = LoginActivityBinding.inflate(inflater, container, false);
+        binding = FragmentVkSignInBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 

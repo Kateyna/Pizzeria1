@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/userNameSignIn"
         android:layout_width="307dp"
         android:layout_height="50dp"
         android:layout_marginStart="101dp"
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/enter" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/pswSignIn"
         android:layout_width="304dp"
         android:layout_height="47dp"
         android:layout_marginStart="99dp"
@@ -53,10 +53,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/userNameSignIn" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/signInBtn"
         android:layout_width="276dp"
         android:layout_height="47dp"
         android:layout_marginStart="153dp"
@@ -68,10 +68,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/pswSignIn" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/signInBtnVk"
         android:layout_width="62dp"
         android:layout_height="60dp"
         android:layout_marginStart="174dp"
@@ -80,11 +80,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/signInBtn"
         app:srcCompat="@drawable/vk_ll" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/noAccBtn"
         android:layout_width="275dp"
         android:layout_height="55dp"
         android:layout_marginStart="64dp"
@@ -94,9 +94,9 @@
         android:background="@drawable/custom_frame"
         android:fontFamily="sans-serif-condensed-light"
         android:text="Зарегистрироваться"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton5"
+        app:layout_constraintBottom_toTopOf="@+id/signInBtnVk"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/signInBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

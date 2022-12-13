@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     EditText Name;
     PizzaViewmodel model;
     Button button;
+    public static long user_id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

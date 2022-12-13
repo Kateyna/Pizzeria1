@@ -13,11 +13,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
-import it.mirea.pizzeria.vk.VkFragmentUp;
+import it.mirea.pizzeria.databinding.RegistrationActivityBinding;
 
 public class SignUpFragment extends Fragment {
 
-    FragmentSignUpBinding binding;
+    RegistrationActivityBinding binding;
     ProfileViewModel model;
 
     @Override
@@ -28,7 +28,7 @@ public class SignUpFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentSignUpBinding.inflate(inflater, container, false);
+        binding = RegistrationActivityBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
@@ -56,12 +56,6 @@ public class SignUpFragment extends Fragment {
             }
         });
 
-        binding.signUpBtnVk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                replaceFragment(new VkFragmentUp());
-            }
-        });
     }
 
     public void replaceFragment(Fragment fragment){
