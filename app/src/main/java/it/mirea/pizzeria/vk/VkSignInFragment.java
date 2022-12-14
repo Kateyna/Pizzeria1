@@ -22,8 +22,6 @@ import it.mirea.pizzeria.ProfileViewModel;
 import it.mirea.pizzeria.R;
 import it.mirea.pizzeria.SignUpFragment;
 import it.mirea.pizzeria.databinding.FragmentVkSignInBinding;
-import it.mirea.pizzeria.databinding.FragmentVkSignUpBinding;
-import it.mirea.pizzeria.databinding.LoginActivityBinding;
 
 public class VkSignInFragment extends Fragment {
 

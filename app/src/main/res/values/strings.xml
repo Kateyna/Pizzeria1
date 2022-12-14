@@ -3,4 +3,6 @@
     <string name="title_home">Где мы</string>
     <string name="title_dashboard">Список пицц</string>
     <string name="title_notifications">Создать пиццу</string>
+    <string name="title_person">Дать роль</string>
+    <string name="title_person2">Мой аккаунт</string>
 </resources>

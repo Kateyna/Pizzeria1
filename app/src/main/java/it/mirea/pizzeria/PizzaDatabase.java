@@ -6,7 +6,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteStatement;
 
-@Database(entities = {Pizza.class, ProfileDAO.class},version = 1, exportSchema = false)
+@Database(entities = {Pizza.class, DBProfile.class},version = 1)
     public abstract class PizzaDatabase extends RoomDatabase {
     public static SupportSQLiteStatement databaseWriteExecutor;
 
@@ -14,9 +14,8 @@ import androidx.sqlite.db.SupportSQLiteStatement;
     public abstract PizzaDAO pizzaDAO();
     public abstract ProfileDAO getProfileDao();
 
-    public  static  PizzaDatabase INSTANCE;
-
-    public  static  PizzaDatabase getDatabase(final Context context){
+    private static volatile  PizzaDatabase INSTANCE;
+    public  static  PizzaDatabase getDatabase (Context context){
         if (INSTANCE == null){
             synchronized (PizzaDatabase.class){
                 if(INSTANCE == null){
