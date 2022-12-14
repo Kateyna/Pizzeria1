@@ -19,6 +19,9 @@
             android:layout_height="60dp"
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="15dp"
+            android:background="@drawable/custom_menu"
+            app:itemIconTint="@color/color_item_menu"
+            app:itemTextColor="@color/color_item_menu"
             app:labelVisibilityMode="labeled"
             app:menu="@menu/bottom_nav_menu" />
 
@@ -28,6 +31,9 @@
             android:layout_height="60dp"
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="15dp"
+            android:background="@drawable/custom_menu"
+            app:itemIconTint="@color/color_item_menu"
+            app:itemTextColor="@color/color_item_menu"
             app:labelVisibilityMode="labeled"
             android:visibility="gone"
             app:menu="@menu/list_menu_bottom_admin" />
@@ -37,6 +43,9 @@
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="bottom|center"
+            android:background="@drawable/custom_menu"
+            app:itemIconTint="@color/color_item_menu"
+            app:itemTextColor="@color/color_item_menu"
             android:layout_marginBottom="15dp"
             app:labelVisibilityMode="labeled"
             android:visibility="gone"
