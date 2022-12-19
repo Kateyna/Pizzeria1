@@ -16,11 +16,13 @@ import androidx.lifecycle.ViewModelProvider;
 
 import it.mirea.pizzeria.databinding.LoginActivityBinding;
 import it.mirea.pizzeria.vk.VkFragment;
+import it.mirea.pizzeria.vk.VkViewModel;
 
 public class SignInFragment extends Fragment {
 
     LoginActivityBinding binding;
     ProfileViewModel model;
+    VkViewModel vkmodel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,7 +41,6 @@ public class SignInFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         model = new ViewModelProvider(this).get(ProfileViewModel.class);
-
         binding.signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

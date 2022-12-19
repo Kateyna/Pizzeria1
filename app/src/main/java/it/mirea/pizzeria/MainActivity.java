@@ -15,7 +15,7 @@ import androidx.navigation.fragment.FragmentNavigator;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.room.Room;
-
+import it.mirea.pizzeria.DBProfile;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -133,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
         replaceFragment(new HomeFragment());
 
 
-        //model.insert(new Tutorials(0, "verbs", "thekarenovich"));
     }
 
     public void replaceFragment(Fragment fragment){

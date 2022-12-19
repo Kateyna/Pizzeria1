@@ -8,9 +8,6 @@ import androidx.sqlite.db.SupportSQLiteStatement;
 
 @Database(entities = {Pizza.class, DBProfile.class},version = 1)
     public abstract class PizzaDatabase extends RoomDatabase {
-    public static SupportSQLiteStatement databaseWriteExecutor;
-
-
     public abstract PizzaDAO pizzaDAO();
     public abstract ProfileDAO getProfileDao();
 
@@ -20,7 +17,7 @@ import androidx.sqlite.db.SupportSQLiteStatement;
             synchronized (PizzaDatabase.class){
                 if(INSTANCE == null){
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            PizzaDatabase.class, "pizza-database").fallbackToDestructiveMigration().build();
+                            PizzaDatabase.class, "pizza-database").allowMainThreadQueries().build();
 
                 }
             }

@@ -80,8 +80,6 @@ public class VkSignUpFragment extends Fragment {
             }
         });
 
-
-
     }
 
     public void replaceFragment(Fragment fragment){

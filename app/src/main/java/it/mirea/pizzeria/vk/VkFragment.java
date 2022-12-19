@@ -39,7 +39,7 @@ public class VkFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        url = "https://oauth.vk.com/authorize?client_id=51496523display=mobile&redirect_uri=https://oauth.vk.com/blank.html&scope=email&response_type=token&v=5.131&state=123456";
+        url = "https://oauth.vk.com/authorize?client_id=51496523&display=mobile&redirect_uri=https://oauth.vk.com/blank.html&scope=email&response_type=token&v=5.131&state=123456";
         CookieManager.getInstance().removeAllCookies(null);
         binding.web.clearCache(true);
         binding.web.loadUrl(url);
